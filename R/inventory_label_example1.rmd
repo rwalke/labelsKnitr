@@ -1,0 +1,53 @@
+---
+geometry: paperheight=30mm,paperwidth=66mm,margin=0cm
+output: pdf_document
+fontsize: 10pt
+header-includes:
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{helvet}
+  \renewcommand{\familydefault}{\sfdefault}
+---
+```{r setup, include = FALSE}
+library(baRcodeR)
+
+Text1 <- "Coffee chair"
+MPI <- "Central Institute"
+Year <- "2022"
+Number1 <- c("CEIN02037480000")
+Code1 <- code_128_make2(Number1)
+```
+
+**`r Text1`**  
+*`r MPI`*  \hfil  `r Year` 
+
+```{r, echo = FALSE, fig.height=1.1, figures-side, fig.show="hold", out.width=c("20%","80%")}
+knitr::include_graphics("logoCEIN.png")
+grid::grid.draw(Code1)
+
+```   
+
+\mbox{} \hfil `r Number1`
+
+\newpage
+```{r , include = FALSE}
+
+Text1 <- "Coffee table"
+MPI <- "Central Institute"
+Year <- "2022"
+Number1 <- c("CEIN02037490000")
+Code1 <- code_128_make2(Number1)
+```
+
+**`r Text1`**  
+*`r MPI`*  \hfil  `r Year` 
+
+```{r, echo = FALSE, fig.height=1.1, figures-side2, fig.show="hold", out.width=c("20%","80%")}
+knitr::include_graphics("logoCEIN.png")
+grid::grid.draw(Code1)
+
+```   
+
+\mbox{} \hfil `r Number1`
+
+
